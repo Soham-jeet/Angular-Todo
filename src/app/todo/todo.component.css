@@ -1,0 +1,46 @@
+:host {
+  font-family: 'Roboto', sans-serif;
+}
+
+/* subtle glass-like background using material + bootstrap */
+mat-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: saturate(140%) blur(8px);
+}
+
+/* each task row */
+.task-row {
+  background: rgba(0,0,0,0.03);
+}
+
+/* struck text style for done tasks */
+.task-done .task-title,
+.task-done .text-muted {
+  opacity: 0.6;
+}
+
+/* badge padding + rounded to make it modern */
+.priority-badge {
+  padding: 6px 8px;
+  border-radius: 12px;
+  text-transform: capitalize;
+  font-weight: 600;
+}
+
+/* small responsive tweaks */
+@media (max-width: 768px) {
+  mat-card {
+    width: 95% !important;
+    padding: 16px;
+  }
+  .priority-select {
+    width: 110px;
+  }
+}
+
+.todays-container {
+  background: rgba(255, 243, 178, 0.55); /* Light yellow glass */
+  border-radius: 20px;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 206, 86, 0.25);
+}

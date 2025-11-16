@@ -1,0 +1,66 @@
+<div class="container d-flex justify-content-center mt-5">
+    <mat-card class="w-75 rounded-4 shadow-lg p-4 mat-elevation-z8 todays-container" role="region" aria-label="Todo">
+        <div class="d-flex align-items-center justify-content-between mb-3">
+            <h3 class="mb-0 d-flex align-items-center gap-2">
+                <span class="material-icons">task_alt</span>
+                Today's Tasks
+            </h3>
+
+            <div class="d-flex gap-2 align-items-center">
+                <button mat-icon-button (click)="sortByPriority()" title="Sort By Priority">
+                    <mat-icon>sort</mat-icon>
+                </button>
+                
+            </div>
+        </div>
+
+        <!-- Task List details -->
+         <div *ngFor="let t of tasks; let i = index" class="d-flex align-items-center gap-3 mb-3 p-3 rounded-3 task-row"
+          [ngClass]="{'task-done' : t.done}">
+            <mat-checkbox [(ngModel)]="t.done" (change)="toggleDone(t)"></mat-checkbox>
+
+            <div class="flex-grow-1">
+                <div class="d-flex justify-content-between align-items-start">
+                    <div>
+                        <div class="task-title fw-medium" [class.text-decoration-line-through]="t.done">{{t.title}}</div>
+                        <small class="text-muted">Added : {{t.createdAt | date:'short'}}</small>
+                    </div>
+                    <div class="ms-3 text-end">
+                        <span class="badge priority-badge" [ngClass]="{
+                            'bg-danger text-white' : t.Priority === 'High',
+                            'bg-warning text-dark' : t.Priority === 'Medium',
+                            'bg-success text-white' : t.Priority === 'Low'
+                        }">{{t.Priority}}</span>
+                        <button mat-icon-button color="warn" (click)="deleteTask(i)" aria-label="Delete Task">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Add Task form (template-driven) -->
+        <div class="d-flex gap-3 align-items-center">
+            <mat-form-field class="flex-grow-1" appearance="outline">
+                <mat-label>New Task</mat-label>
+                <input matInput placeholder="What do you decide to do !!" [(ngModel)]="newTask" name="newTask">
+            </mat-form-field>
+
+            <mat-form-field class="priority-select" appearance="outline">
+                <mat-label>Priority</mat-label>
+                <select matNativeControl name="newPriority" [(ngModel)]="newPriority">
+                    <option value="High">High</option>
+                    <option value="Medium" selected>Medium</option>
+                    <option value="Low">Low</option>
+                </select>
+            </mat-form-field>
+
+            <button mat-fab color="primary" (click)="addTask()" [disabled]="!newTask.trim()" aria-label="Add Task">
+                <mat-icon>add</mat-icon>
+            </button>
+        </div>
+    </mat-card>
+</div>
+

@@ -1,0 +1,104 @@
+/* 2025 Glassmorphic Header */
+.todo-header {
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(10px);
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+/* Gradient Title (2025 Style) */
+.header-title {
+  background: linear-gradient(90deg, #4e54c8, #8f94fb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Icon Glow */
+.header-icon {
+  color: #4e54c8;
+  font-size: 32px;
+  filter: drop-shadow(0 0 6px rgba(78, 84, 200, 0.4));
+}
+
+
+/* PAGE LAYOUT */
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.2rem;
+}
+
+/* TODO CONTAINER (holds your todo component card) */
+.todo-container {
+  width: 100%;
+  max-width: 700px;   /* Desktop width */
+  margin-bottom: 2rem;
+}
+
+/* Make header responsive */
+.todo-header {
+  width: 100%;
+  max-width: 700px;
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(10px);
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+.header-title {
+  background: linear-gradient(90deg, #4e54c8, #8f94fb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+}
+
+.header-icon {
+  color: #4e54c8;
+  font-size: 32px;
+  filter: drop-shadow(0 0 6px rgba(78, 84, 200, 0.4));
+}
+
+/* ------------------------------------ */
+/* MOBILE VIEW                           */
+/* ------------------------------------ */
+@media (max-width: 576px) {
+  
+  .todo-container,
+  .todo-header {
+    max-width: 100%;
+  }
+
+  /* Smaller title */
+  .header-title {
+    font-size: 1.3rem;
+  }
+
+  .header-icon {
+    font-size: 24px;
+  }
+
+  /* Reduce padding */
+  .todo-header {
+    padding: 0.8rem;
+  }
+}
+
+/* ------------------------------------ */
+/* TABLET VIEW                           */
+/* ------------------------------------ */
+@media (min-width: 577px) and (max-width: 1024px) {
+  .todo-container,
+  .todo-header {
+    max-width: 85%;
+  }
+}
